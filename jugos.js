@@ -22,3 +22,33 @@ function timeToMixJuice(juice) {
             return 2.5;
     }
 }
+
+const limes = {
+    "pequena": 6,
+    "mediana": 8,
+    "grande": 10,
+};
+
+function limesToCut(numberCuts, limesAvailable) {
+    let numberLimes = 0
+    let cuts = 0
+    for (let i = 0; i < limesAvailable.length; i++) {
+        const size = limesAvailable[i];
+        cuts += limes[size];
+        numberLimes += 1;
+        if (cuts >= numberCuts) {
+            console.log("Se deben de cortar las primeras " + numberLimes + " limas");
+            break;
+        }
+    }
+    if (cuts < numberCuts) {
+        console.log("No hay suficientes limas, por lo que corta todas");
+    }
+    return numberLimes;
+}
+
+testJuice = timeToMixJuice("Green Garden");
+console.log(testJuice);
+console.log();
+testLimes = limesToCut(20, ["grande", "pequena", "mediana", "grande", "grande", "grande", "grande", "grande"]);
+console.log(testLimes);
