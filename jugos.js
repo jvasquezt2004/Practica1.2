@@ -47,8 +47,37 @@ function limesToCut(numberCuts, limesAvailable) {
     return numberLimes;
 }
 
+const drinks = {
+    "Pure Strawberry Joy": 0.5,
+    "Energizer": 1.5,
+    "Green Garden": 1.5,
+    "Tropical Island" : 3,
+    "All or nothing" : 5,
+};
+
+function ordersLiMei(timeLeft, driksMissing){
+    if (timeLeft > 0){
+        while (driksMissing.length > 0){
+            const drink = driksMissing.shift();
+            timeLeft -= drinks[drink] || 2.5;
+            if (timeLeft <= 0){
+                console.log("Ya se tiene que ir Li Mei");
+                break;
+            }
+        }
+        return driksMissing;
+    }
+    else{
+        console.log("No se pueden hacer mas bebidas, Li Mei ya salio")
+    }
+}
+
 testJuice = timeToMixJuice("Green Garden");
 console.log(testJuice);
 console.log();
-testLimes = limesToCut(20, ["grande", "pequena", "mediana", "grande", "grande", "grande", "grande", "grande"]);
+testLimes = limesToCut(50, ["grande", "pequena", "mediana", "grande", "grande", "grande", "grande", "grande"]);
 console.log(testLimes);
+console.log();
+testTime = ordersLiMei(8,["Vodka", "All or nothing", "Pure Strawberry Joy", "Energizer"]);
+console.log("Bebidas faltantes por hacer Dmitry")
+console.log(testTime)
