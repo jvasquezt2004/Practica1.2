@@ -83,6 +83,7 @@ function ordersLiMei(timeLeft, driksMissing){
     }
     else{
         console.log("No se pueden hacer mas bebidas, Li Mei ya salio")
+        return driksMissing;
     }
 }
 
