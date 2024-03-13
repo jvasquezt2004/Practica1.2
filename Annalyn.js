@@ -110,16 +110,6 @@ let Prisionero = crearPersonaje();
 // Generacion del perro de Annalyn
 Annalyn.GenerarPerro();
 
-// Generacion de los estados de los personajes
-Caballero.GenerarEstado();
-Arquero.GenerarEstado();
-Prisionero.GenerarEstado();
-
-// Llamado a los metodos de Annalyn
-Annalyn.AtaqueRapido();
-Annalyn.Espia();
-Annalyn.SeñalarPrisionero();
-Annalyn.PrisioneroLibre();
 
 //función para generar un numero aleatorio de 1 al 4
 function generarNumeroAleatorio4() {
@@ -148,15 +138,21 @@ function elegirMetodo(){
 }
 
 //Funcion que genera las acciones hasta que se libere al prisionero
-while (!Prisionero.Estado != "Liberado"){
+while (Prisionero.Estado != "Liberado"){
 
     //Genera estado de los personajes
     Caballero.GenerarEstado();
     Arquero.GenerarEstado();
     Prisionero.GenerarEstado();
 
+    console.log("Estado de los personajes: ")
+    console.log("Caballero: " + Caballero.Estado)
+    console.log("Arquero: " + Arquero.Estado)
+    console.log("Prisionero: " + Prisionero.Estado)
+    console.log("Perro de Annalyn: " + Annalyn.Perro)
     //Elige el metodo que se va a elegir
     elegirMetodo();
+    console.log("")
 }
 
 console.log("¡Fin del juego! Annalyn ha logrado liberar al prisionero")
