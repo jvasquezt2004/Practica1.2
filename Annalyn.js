@@ -54,6 +54,7 @@ let Annalyn = {
         if (this.Perro == true) {
             if (Arquero.Estado == "Durmiendo") {
                 console.log("Annalyn libera al prisionero");
+                Prisionero.EstablecerEstado("Liberado");
             } else {
                 console.log("Annalyn no puede liberar al prisionero, el arquero está despierto");
             }
@@ -62,6 +63,7 @@ let Annalyn = {
             if (Prisionero.Estado == "Despierto") {
                 if (Arquero.Estado == "Durmiendo" && Caballero.Estado == "Durmiendo") {
                     console.log("Annalyn libera al prisionero");
+                    Prisionero.EstablecerEstado("Liberado");
                 } else {
                     console.log("Annalyn no puede liberar al prisionero, hay al menos un enemigo despierto");
                 }
@@ -146,7 +148,7 @@ function elegirMetodo(){
 }
 
 //Funcion que genera las acciones hasta que se libere al prisionero
-while (!Prisionero.Estado === "Libre"){
+while (!Prisionero.Estado != "Liberado"){
 
     //Genera estado de los personajes
     Caballero.GenerarEstado();
