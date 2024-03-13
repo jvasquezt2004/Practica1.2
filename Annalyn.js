@@ -118,3 +118,43 @@ Annalyn.AtaqueRapido();
 Annalyn.Espia();
 Annalyn.SeñalarPrisionero();
 Annalyn.PrisioneroLibre();
+
+//función para generar un numero aleatorio de 1 al 4
+function generarNumeroAleatorio4() {
+    
+    return Math.floor(Math.random() * 4) + 1;
+}
+
+//Función que elige el método que se va a ocupar segun el numero aleatorio dado
+function elegirMetodo(){
+    var numero = generarNumeroAleatorio4();
+    console.log("Numero generado:", numero);
+    switch (numero){
+        case 1:
+            Annalyn.AtaqueRapido();
+            break;
+        case 2:
+            Annalyn.Espia();
+            break;
+        case 3:
+            Annalyn.SeñalarPrisionero();
+            break;
+        case 4:
+            Annalyn.PrisioneroLibre();
+            break;
+    }
+}
+
+//Funcion que genera las acciones hasta que se libere al prisionero
+while (!Prisionero.Estado === "Libre"){
+
+    //Genera estado de los personajes
+    Caballero.GenerarEstado();
+    Arquero.GenerarEstado();
+    Prisionero.GenerarEstado();
+
+    //Elige el metodo que se va a elegir
+    elegirMetodo();
+}
+
+console.log("¡Fin del juego! Annalyn ha logrado liberar al prisionero")
